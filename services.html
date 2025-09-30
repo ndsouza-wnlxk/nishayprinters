@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing Services - Nishay Printers Bengaluru</title>
+    <meta name="description" content="Professional printing services: Digital, Offset, Screen Printing, ID Cards, Stamps, Binding, and Design Services in Bengaluru.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cmyk-cyan': '#00B4D8',
+                        'cmyk-magenta': '#E6399B',
+                        'cmyk-yellow': '#FFD60A',
+                        'cmyk-black': '#1D1D1F',
+                        'cmyk-gray': '#6C757D'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .service-item {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00B4D8, #E6399B);
+            color: white;
+        }
+        
+        .calculator-card {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.05) 0%, rgba(230, 57, 155, 0.05) 100%);
+            border: 1px solid rgba(0, 180, 216, 0.1);
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .price-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00B4D8;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-cmyk-black">Nishay Printers</h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-cmyk-gray hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="services.html" class="text-cmyk-black hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="contact.html" class="text-cmyk-gray hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle text-cmyk-black hover:text-cmyk-cyan">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-6xl font-bold text-cmyk-black mb-6 fade-in-up">
+                    Our <span class="text-cmyk-cyan">Services</span>
+                </h1>
+                <p class="text-xl text-cmyk-gray max-w-3xl mx-auto fade-in-up">
+                    Professional printing solutions tailored to your business needs. From digital prints to large format displays.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Filters -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-3 rounded-full border border-cmyk-cyan text-cmyk-cyan font-semibold" data-filter="all">
+                    All Services
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border border-cmyk-cyan text-cmyk-cyan font-semibold" data-filter="digital">
+                    Digital Printing
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border border-cmyk-cyan text-cmyk-cyan font-semibold" data-filter="offset">
+                    Offset Printing
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border border-cmyk-cyan text-cmyk-cyan font-semibold" data-filter="specialty">
+                    Specialty Services
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Services List -->
+                <div class="lg:col-span-2">
+                    <div class="space-y-8">
+                        <!-- Digital Printing -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="digital" id="digital">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/www.colorjetgroup.com/3ca29ad6bcd1428014b0ac09c51786bf5a4e05d8.png" 
+                                         alt="Digital Printing" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Digital Printing</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        High-quality digital printing perfect for short runs and quick turnaround projects. 
+                                        Ideal for business cards, flyers, brochures, and marketing materials.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Full color CMYK printing</li>
+                                        <li>• Quick turnaround (same day available)</li>
+                                        <li>• Various paper stocks available</li>
+                                        <li>• Print sizes from A6 to A3+</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-cyan text-white px-6 py-2 rounded-lg hover:bg-cmyk-cyan/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Multi Colour Printing -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="digital">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/descoonline.com/a9b4a96d355a90c0ab6dcc314ba06094ef34b490.jpg" 
+                                         alt="Multi Colour Printing" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Multi Colour Printing</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Vibrant multi-color printing services for eye-catching marketing materials, 
+                                        posters, and promotional items that make your brand stand out.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Up to 6 color printing</li>
+                                        <li>• Pantone color matching</li>
+                                        <li>• Specialty finishes available</li>
+                                        <li>• Large format options</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-magenta text-white px-6 py-2 rounded-lg hover:bg-cmyk-magenta/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offset Printing -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="offset" id="offset">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/www.assetliquidity.net/1532dc3acd8758c46f5ac77161eb9391909976b3.webp" 
+                                         alt="Offset Printing" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Offset Printing</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Cost-effective bulk printing solutions for large quantity requirements. 
+                                        Perfect for books, magazines, catalogs, and high-volume marketing materials.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Minimum 500 copies</li>
+                                        <li>• Superior print quality</li>
+                                        <li>• Cost-effective for bulk orders</li>
+                                        <li>• Various binding options</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-cyan text-white px-6 py-2 rounded-lg hover:bg-cmyk-cyan/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screen Printing -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="specialty">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/www.bestprintingnyc.com/6f04ca7728120061a3a7ed500bebed65976b9274.png" 
+                                         alt="Screen Printing" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Screen Printing</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Durable and vibrant screen printing for textiles, promotional items, and specialty materials. 
+                                        Perfect for t-shirts, bags, and corporate merchandise.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Long-lasting prints</li>
+                                        <li>• Fabric and non-fabric materials</li>
+                                        <li>• Custom color mixing</li>
+                                        <li>• Bulk order discounts</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-yellow text-cmyk-black px-6 py-2 rounded-lg hover:bg-cmyk-yellow/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Binding Works -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="specialty">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/5.imimg.com/97f5784ccaffcf44ba8032f724643ef2d1c41329.png" 
+                                         alt="Binding Services" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Binding Works</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Professional binding services for reports, thesis, manuals, and books. 
+                                        Multiple binding options available to suit your needs and budget.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Spiral binding</li>
+                                        <li>• Perfect binding</li>
+                                        <li>• Hardcover binding</li>
+                                        <li>• Same day service available</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-magenta text-white px-6 py-2 rounded-lg hover:bg-cmyk-magenta/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ID Cards -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="specialty" id="id-cards">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/www.shreeinfosys.com/771d9101baa3d75845e8a7455980ba1b57b0dd45.jpg" 
+                                         alt="ID Cards" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">ID Cards</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Professional ID card printing with various security features and design options. 
+                                        Perfect for corporate, educational, and institutional use.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• PVC card printing</li>
+                                        <li>• Magnetic stripe encoding</li>
+                                        <li>• Photo ID integration</li>
+                                        <li>• Lanyard and holder options</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-cyan text-white px-6 py-2 rounded-lg hover:bg-cmyk-cyan/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stamps -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="specialty">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/149657011.v2.pressablecdn.com/970249e88ac43b80ee506d1a25beeb64689daf21.jpeg" 
+                                         alt="Rubber Stamps" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Rubber & Self-Ink Stamps</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Custom stamp manufacturing for business and personal use. 
+                                        Available in rubber and self-inking varieties with quick turnaround.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Custom design stamps</li>
+                                        <li>• Self-inking stamps</li>
+                                        <li>• Date stamps</li>
+                                        <li>• Same day service</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-yellow text-cmyk-black px-6 py-2 rounded-lg hover:bg-cmyk-yellow/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design Services -->
+                        <div class="service-item bg-white rounded-xl shadow-lg overflow-hidden" data-category="specialty">
+                            <div class="md:flex">
+                                <div class="md:w-1/3">
+                                    <img src="https://kimi-web-img.moonshot.cn/img/d3jmn01ri1fzgl.cloudfront.net/7f9e2a2e730debdc4ec8ed693797397a3724adb2.webp" 
+                                         alt="Design Services" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-2/3 p-8">
+                                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Design Services</h3>
+                                    <p class="text-cmyk-gray mb-4">
+                                        Professional graphic design services to complement your printing needs. 
+                                        From concept to final artwork, we create designs that make an impact.
+                                    </p>
+                                    <ul class="text-sm text-cmyk-gray mb-6 space-y-1">
+                                        <li>• Logo design</li>
+                                        <li>• Marketing materials</li>
+                                        <li>• Print-ready artwork</li>
+                                        <li>• Brand identity design</li>
+                                    </ul>
+                                    <div class="flex justify-start items-center">
+                                        <a href="tel:9845213280" class="bg-cmyk-magenta text-white px-6 py-2 rounded-lg hover:bg-cmyk-magenta/90 transition-colors">
+                                            Call for Pricing
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-cmyk-cyan to-cmyk-magenta text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6 fade-in-up">Need Help Choosing the Right Service?</h2>
+            <p class="text-xl mb-8 fade-in-up">
+                Contact our experts for personalized recommendations and quotes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up">
+                <a href="tel:9845213280" class="bg-white text-cmyk-cyan px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                    Call: 9845213280
+                </a>
+                <a href="tel:6364692122" class="bg-cmyk-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cmyk-black/90 transition-all transform hover:scale-105">
+                    Call: 6364692122
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cmyk-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Nishay Printers</h3>
+                <p class="text-gray-300 mb-6">
+                    3rd Block, 300, 6th Cross Rd, HMT Layout, Vidyaranyapura, Bengaluru, Karnataka 560097
+                </p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="tel:9845213280" class="text-gray-300 hover:text-cmyk-cyan transition-colors">
+                        📞 9845213280
+                    </a>
+                    <a href="tel:6364692122" class="text-gray-300 hover:text-cmyk-cyan transition-colors">
+                        📞 6364692122
+                    </a>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    © 2024 Nishay Printers. All rights reserved. | Monday - Saturday, 10AM to 7PM
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
+ 
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

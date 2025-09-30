@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishay Printers - Printing & Design Services in Bengaluru</title>
+    <meta name="description" content="Professional printing services in Bengaluru. Digital, Offset, Screen Printing, ID Cards, Stamps, and Design Services. Call 9845213280 for quality printing.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cmyk-cyan': '#00B4D8',
+                        'cmyk-magenta': '#E6399B',
+                        'cmyk-yellow': '#FFD60A',
+                        'cmyk-black': '#1D1D1F',
+                        'cmyk-gray': '#6C757D'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(230, 57, 155, 0.1) 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cmyk-gradient {
+            background: linear-gradient(135deg, #00B4D8 0%, #E6399B 50%, #FFD60A 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #00B4D8, #E6399B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+        }
+        
+        .notification-success { background: #10B981; }
+        .notification-error { background: #EF4444; }
+        .notification-info { background: #00B4D8; }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .counter {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #00B4D8;
+        }
+        
+        .splide__arrow {
+            background: #00B4D8 !important;
+        }
+        
+        .splide__pagination__page.is-active {
+            background: #E6399B !important;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-cmyk-black">Nishay Printers</h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-cmyk-black hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="services.html" class="text-cmyk-gray hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="contact.html" class="text-cmyk-gray hover:text-cmyk-cyan px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle text-cmyk-black hover:text-cmyk-cyan">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-cmyk-black font-medium">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-cmyk-gray hover:text-cmyk-cyan">Services</a>
+                <a href="contact.html" class="block px-3 py-2 text-cmyk-gray hover:text-cmyk-cyan">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-16 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-cmyk-black mb-6">
+                        Nishay Printers
+                    </h1>
+                    <p class="hero-subtitle text-xl lg:text-2xl text-cmyk-gray mb-8 opacity-0">
+                        Printing & Design Services in Bengaluru
+                    </p>
+                    <p class="text-lg text-cmyk-gray mb-8 fade-in-up">
+                        Digital, Offset, Screen Printing, ID Cards, Stamps, and More
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-up">
+                        <a href="tel:9845213280" class="bg-cmyk-cyan hover:bg-cmyk-cyan/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center">
+                            Call Now
+                        </a>
+                        <a href="https://maps.google.com/?q=3rd Block, 300, 6th Cross Rd, HMT Layout, Vidyaranyapura, Bengaluru, Karnataka 560097" 
+                           target="_blank" 
+                           class="bg-cmyk-magenta hover:bg-cmyk-magenta/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center">
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="hero-printing.png" alt="Modern Printing Equipment" 
+                         class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-cmyk-black mb-6">Our Services</h2>
+                <p class="text-xl text-cmyk-gray max-w-3xl mx-auto">
+                    Professional printing solutions tailored to your business needs. From digital prints to large format displays.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card rounded-xl p-8 text-center fade-in-up">
+                    <div class="w-16 h-16 bg-cmyk-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cmyk-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Digital Printing</h3>
+                    <p class="text-cmyk-gray mb-6">High-quality digital prints with quick turnaround times for all your business needs.</p>
+                    <a href="services.html#digital" class="text-cmyk-cyan font-semibold hover:underline">Learn More →</a>
+                </div>
+                
+                <div class="service-card rounded-xl p-8 text-center fade-in-up">
+                    <div class="w-16 h-16 bg-cmyk-magenta/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cmyk-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">Offset Printing</h3>
+                    <p class="text-cmyk-gray mb-6">Cost-effective bulk printing solutions for large quantity requirements.</p>
+                    <a href="services.html#offset" class="text-cmyk-magenta font-semibold hover:underline">Learn More →</a>
+                </div>
+                
+                <div class="service-card rounded-xl p-8 text-center fade-in-up">
+                    <div class="w-16 h-16 bg-cmyk-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cmyk-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cmyk-black mb-4">ID Cards & Stamps</h3>
+                    <p class="text-cmyk-gray mb-6">Professional ID cards and custom stamps for your organization.</p>
+                    <a href="services.html#id-cards" class="text-cmyk-yellow font-semibold hover:underline">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in-up">
+                <a href="services.html" class="bg-cmyk-black hover:bg-cmyk-black/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Equipment Showcase -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-cmyk-black mb-6">Our Equipment</h2>
+                <p class="text-xl text-cmyk-gray max-w-3xl mx-auto">
+                    State-of-the-art printing equipment ensuring the highest quality output for every project.
+                </p>
+            </div>
+            
+            <div class="services-carousel splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <img src="https://kimi-web-img.moonshot.cn/img/www.colorjetgroup.com/3ca29ad6bcd1428014b0ac09c51786bf5a4e05d8.png" 
+                                     alt="Digital Printing Machine" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-cmyk-black mb-2">Digital Printing Press</h3>
+                                    <p class="text-cmyk-gray">High-speed digital printing for quality output</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <img src="https://kimi-web-img.moonshot.cn/img/www.assetliquidity.net/1532dc3acd8758c46f5ac77161eb9391909976b3.webp" 
+                                     alt="Offset Printing Press" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-cmyk-black mb-2">Offset Printing Press</h3>
+                                    <p class="text-cmyk-gray">Commercial offset printing for bulk orders</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <img src="https://kimi-web-img.moonshot.cn/img/d2tl9ctlpnidkn.cloudfront.net/e7d83ec28db1ae2559ea8972b531d179ceb54a0a.jpg" 
+                                     alt="Business Cards" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-cmyk-black mb-2">Business Card Printing</h3>
+                                    <p class="text-cmyk-gray">Professional business cards with various finishes</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <img src="https://kimi-web-img.moonshot.cn/img/5.imimg.com/97f5784ccaffcf44ba8032f724643ef2d1c41329.png" 
+                                     alt="Binding Services" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-cmyk-black mb-2">Binding Services</h3>
+                                    <p class="text-cmyk-gray">Professional binding for documents and books</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-cmyk-cyan to-cmyk-magenta text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 fade-in-up">Ready to Start Your Project?</h2>
+            <p class="text-xl mb-8 fade-in-up">
+                Get in touch with us today for a free quote and consultation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up">
+                <a href="tel:9845213280" class="bg-white text-cmyk-cyan px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                    Call: 9845213280
+                </a>
+                <a href="tel:6364692122" class="bg-cmyk-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cmyk-black/90 transition-all transform hover:scale-105">
+                    Call: 6364692122
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cmyk-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Nishay Printers</h3>
+                <p class="text-gray-300 mb-6">
+                    3rd Block, 300, 6th Cross Rd, HMT Layout, Vidyaranyapura, Bengaluru, Karnataka 560097
+                </p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="tel:9845213280" class="text-gray-300 hover:text-cmyk-cyan transition-colors">
+                        📞 9845213280
+                    </a>
+                    <a href="tel:6364692122" class="text-gray-300 hover:text-cmyk-cyan transition-colors">
+                        📞 6364692122
+                    </a>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    © 2024 Nishay Printers. All rights reserved. | Monday - Saturday, 10AM to 7PM
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
